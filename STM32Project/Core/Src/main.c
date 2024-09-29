@@ -22,6 +22,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "global.h"
+#include "softwareTimer.h"
+#include "digitalClock.h"
+#include "clockBuffer.h"
+#include "control7SEG_LED.h"
+#include "controlMatrix.h"
 
 /* USER CODE END Includes */
 
@@ -94,11 +100,44 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+  setTimer0(10);
+    setTimer1(10);
+    setTimer2(10);
+    setTimer3(10);
+    while (1)
+    {
+      /* USER CODE END WHILE */
+      /* USER CODE BEGIN 3 */
+  	  if(timer3_flag == 1)
+  	  {
+  		  updateLEDMatrix(index_led_matrix++);
+  		  if(index_led_matrix == MAX_LED_MATRIX)
+  		  {
+  			  index_led_matrix = 0;
+  		  }
+  		  setTimer3(10);
+  	  }
+  	  if(timer2_flag == 1)
+  	  {
+  		  update7SEG(index_led++);
+  		  if(index_led == MAX_LED)
+  		  {
+  			  index_led = 0;
+  		  }
+  		  setTimer2(250);
+  	  }
+  	  if(timer1_flag == 1)
+  	  {
+  		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+  		  digitalClock();
+  		  updateClockBuffer();
+  		  setTimer1(1000);
+  	  }
+  	  if(timer0_flag == 1)
+  	  {
+  		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+  		  setTimer0(2000);
+  	  }
   }
   /* USER CODE END 3 */
 }
@@ -237,7 +276,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim )
+{
+		timer_run();
+}
 /* USER CODE END 4 */
 
 /**
