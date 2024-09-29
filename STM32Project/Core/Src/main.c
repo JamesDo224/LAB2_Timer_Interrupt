@@ -104,10 +104,16 @@ int main(void)
     setTimer1(10);
     setTimer2(10);
     setTimer3(10);
+    setTimer4(10);
     while (1)
     {
       /* USER CODE END WHILE */
       /* USER CODE BEGIN 3 */
+      if(timer4_flag == 1)
+      {
+		  updateMatrix_buffer();
+		  setTimer4(100);
+      }
   	  if(timer3_flag == 1)
   	  {
   		  updateLEDMatrix(index_led_matrix++);

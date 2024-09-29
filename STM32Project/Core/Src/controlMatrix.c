@@ -270,3 +270,14 @@ void updateLEDMatrix(int index)
 	}
 }
 
+void updateMatrix_buffer()
+{
+	matrix_buffer[0] = (matrix_buffer[0] << 7) | (matrix_buffer[0] >> 1);
+	matrix_buffer[1] = (matrix_buffer[1] << 7) | (matrix_buffer[1] >> 1);
+	matrix_buffer[2] = (matrix_buffer[2] << 7) | (matrix_buffer[2] >> 1);
+	matrix_buffer[3] = (matrix_buffer[3] << 7) | (matrix_buffer[3] >> 1);
+	matrix_buffer[4] = (matrix_buffer[4] << 7) | (matrix_buffer[4] >> 1);
+	matrix_buffer[5] = (matrix_buffer[5] << 7) | (matrix_buffer[5] >> 1);
+	matrix_buffer[6] = (matrix_buffer[6] << 7) | (matrix_buffer[6] >> 1);
+	matrix_buffer[7] = (matrix_buffer[7] << 7) | (matrix_buffer[7] >> 1);
+}

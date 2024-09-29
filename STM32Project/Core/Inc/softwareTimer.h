@@ -20,12 +20,16 @@ extern int timer2_flag;
 extern int timer3_counter;
 extern int timer3_flag;
 
+extern int timer4_counter;
+extern int timer4_flag;
+
 extern int TIMER_CYCLE;
 
 void setTimer0(int duration);
 void setTimer1(int duration);
 void setTimer2(int duration);
 void setTimer3(int duration);
+void setTimer4(int duration);
 
 void timer_run();
 
