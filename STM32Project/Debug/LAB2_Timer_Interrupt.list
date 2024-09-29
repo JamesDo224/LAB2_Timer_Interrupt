@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020024  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000086b7  00000000  00000000  0002004d  2**0
+ 12 .debug_info   000086a4  00000000  00000000  0002004d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001568  00000000  00000000  00028704  2**0
+ 13 .debug_abbrev 00001568  00000000  00000000  000286f1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000968  00000000  00000000  00029c70  2**3
+ 14 .debug_aranges 00000968  00000000  00000000  00029c60  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008c0  00000000  00000000  0002a5d8  2**3
+ 15 .debug_ranges 000008c0  00000000  00000000  0002a5c8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016362  00000000  00000000  0002ae98  2**0
+ 16 .debug_macro  00016362  00000000  00000000  0002ae88  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000094fb  00000000  00000000  000411fa  2**0
+ 17 .debug_line   000094fb  00000000  00000000  000411ea  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000822f0  00000000  00000000  0004a6f5  2**0
+ 18 .debug_str    000822e4  00000000  00000000  0004a6e5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc9e5  2**0
+ 19 .comment      00000053  00000000  00000000  000cc9c9  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026cc  00000000  00000000  000cca38  2**2
+ 20 .debug_frame  000026cc  00000000  00000000  000cca1c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1370,7 +1370,6 @@ static void MX_GPIO_Init(void)
 080009a8 <HAL_TIM_PeriodElapsedCallback>:
 
 /* USER CODE BEGIN 4 */
-int counter_LED = 100;
 int counter_7SEGLed = 25;
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim )
 {
